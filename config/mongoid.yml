@@ -104,7 +104,7 @@ production:
   sessions:
     default:	
       #uri: <%= ENV['MONGOHQ_URL'] %>
-      uri: mongodb://heroku_p92rv344:dp8ooihme53k4kg92m22c5qc98@ds047632.mongolab.com:47632/heroku_p92rv344
+      uri: mongodb://heroku_p92rv344:9aui942bsu900geeoos3v8rl3i@ds031893.mongolab.com:31893/heroku_p92rv344
       options:
         #skip_version_check: true
         #safe: true
