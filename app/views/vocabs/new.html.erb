@@ -1,0 +1,14 @@
+<h1>Create New Vocab</h1>
+<%= form_for @vocab do |f| %>
+<% if @vocab.errors.any? %>
+<ul>
+  <% @vocab.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+<%= f.text_field :dict_entry, placeholder: "Dictionary Entry" %>
+<%= f.text_field :part_of_speech, placeholder: "Part of Speech" %>
+<%= f.text_field :definition, placeholder: "Definition" %>
+<%= f.submit "Create Vocab" %>
+<% end %>

@@ -1,0 +1,28 @@
+<h1>User Details</h1>
+<table>
+  <tr>
+    <td><%= @user.username %></td>
+    <td><%= @user.email %></td>
+  </tr>
+</table>
+<table>
+  <% @vocab.each do |v| %>
+    <% unless @user.vocabs.include?(v) %>
+      <tr>
+	<td><%= v.dict_entry %></td>
+	<td><%= v.part_of_speech %></td>
+	<td><%= link_to "Add Word", users_add_vocab_path(user_param: @user, vocab_param: v) %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+<h3>User's Words</h3>
+<table>
+  <% @vocabs.each do |v| %>
+  <tr>
+    <td><%= v.dict_entry %></td>
+    <td><%= v.part_of_speech %></td>
+    <td><%= link_to "Remove Word", users_remove_vocab_path(user_param: @user, vocab_param: v) %></td>
+  </tr>
+  <% end %>
+</table>

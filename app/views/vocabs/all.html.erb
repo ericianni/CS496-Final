@@ -1,0 +1,21 @@
+<h1>All Vocab</h1>
+<table>
+  <% if @vocab.empty? %>
+  <thead>
+    <tr><td>No Vocab</td></tr>
+  </thead>
+  <% else %>
+  <thead>
+    <tr>
+      <td>Vocab<td>
+    </tr>
+  </thead>
+  <% @vocab.each do |v| %>
+  <tr>
+    <td><%= v.dict_entry %></td>
+    <td><%= v.part_of_speech %></td>
+    <td><%= v.definition %></td>
+  </tr>
+  <% end %>
+  <% end %>
+</table>

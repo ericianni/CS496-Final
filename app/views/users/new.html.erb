@@ -1,0 +1,15 @@
+<h1>New User Sign Up</h1>
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+<ul>
+  <% @user.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+<%= f.email_field :email, placeholder: "email" %>
+<%= f.text_field :username, placeholder: "username" %>
+<%= f.password_field :password, placeholder: "password" %>
+<%= f.password_field :password_confirmation, placeholder: "password" %>
+<%= f.submit "Create Account" %>
+<% end %>

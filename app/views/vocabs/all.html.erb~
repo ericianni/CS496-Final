@@ -1,0 +1,21 @@
+<table>
+  <% if @verb.empty? %>
+  <thead>
+    <tr><td>No Verbs</td></tr>
+  </thead>
+  <% else %>
+  <thead>
+    <tr>
+      <td>Verbs<td>
+    </tr>
+  </thead>
+  <% @verb.each do |v| %>
+  <tr>
+    <td><%= v.first %>, <%= v.second %></td>
+    <td><%= link_to "Details", v %></td>
+    <td><%= link_to "Edit", edit_verb_path(v) %></td>
+    <td><%= link_to "Delete", v, method: :delete %></td>
+  </tr>
+  <% end %>
+  <% end %>
+</table>
