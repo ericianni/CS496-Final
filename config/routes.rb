@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   get 'api/vocabs/all' => 'api/vocabs#all'
+  post 'api/users/add_vocab' => 'api/users#add_vocab'
+  post 'api/users/remove_vocab' => 'api/users#remove_vocab'
   namespace :api do
     resources :vocabs
   end
