@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :api do
+    resources :vocabs
+  end
+  namespace :api do
     resources :users
   end
 
