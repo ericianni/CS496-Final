@@ -15,6 +15,30 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
+  def add_vocab
+    @user = User.find(params[:user_param])
+    @vocab = Vocab.find(params[:vocab_param])
+    @vocabs = @user.vocabs
+    @vocabs << @vocab
+    if @user.update_attribute(:vocabs, @vocabs)
+      render json: '{"status":"success"}'
+    else
+      render json: '{"status":"failure"}'
+    end
+  end
+
+  def remove_vocab
+    @user = User.find(params[:user_param])
+    vocab = Vocab.find(params[:vocab_param])
+    vocabs = @user.vocabs.compact
+    vocabs.delete(vocab)
+    if @user.update_attribute(:vocabs, vocabs)
+      render json: '{"status":"success"}'
+    else
+      render json: '{"status"::failure"}'
+    end
+  end
   
   private
   def user_params
