@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   
   get 'vocabs/all' => 'vocabs#all'
 
+  get 'api/vocabs/all' => 'api/vocabs#all'
+  
   get 'login' => 'sessions#new'
 
   post 'login' => 'sessions#create'
