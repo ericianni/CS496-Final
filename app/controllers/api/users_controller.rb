@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      render json: '{"status":"success", "id":"#{@user.id}"}'
+      render json: '{"status":"success", "id":"' + @user.id + '"}'
     else
       render json: '{"status":"failure"}'
     end
