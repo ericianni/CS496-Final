@@ -3,6 +3,14 @@ class Api::UsersController < ApplicationController
   def new
   end
 
+  def login
+    if authenticated?(user_params)
+      render json: '{"status":"success"}'
+    else
+      render json: '{"status":"failure"}'
+    end
+  end
+  
   def create
     @user = User.new(user_params)
     if @user.save

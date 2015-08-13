@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post 'api/login' => 'api/users#login'
+  
   get 'api/vocabs/all' => 'api/vocabs#all'
   post 'api/users/add_vocab' => 'api/users#add_vocab'
   post 'api/users/remove_vocab' => 'api/users#remove_vocab'
