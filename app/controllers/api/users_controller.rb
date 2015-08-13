@@ -4,7 +4,8 @@ class Api::UsersController < ApplicationController
   end
 
   def login
-    if authenticated?(user_params)
+    user = User.find_by(email: auth_params[:email])
+    if user && user.authenticate(auth_params[:password])
       render json: '{"status":"success"}'
     else
       render json: '{"status":"failure"}'
