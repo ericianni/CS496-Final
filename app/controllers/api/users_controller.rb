@@ -40,7 +40,7 @@ class Api::UsersController < ApplicationController
     if @user.update_attributes(user_params)
       render json: '{"status":"success"}'
     else
-      render json: user_params
+      render text: user_params.inspect
 #      render json: '{"status":"failure"}'
     end
   end
