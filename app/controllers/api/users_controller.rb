@@ -44,7 +44,7 @@ class Api::UsersController < ApplicationController
     if @user.update_attributes(user_params)
       render json: '{"status":"success"}'
     else
-      render json: '{"username":"' + user_params[:username] + '","email":"' + user_params[:email] + '"}'
+      render json: '{"username":"' + user_params[:username] + '","email":"' + user_params[:email] + '","size":"'+user_params.size+'"}'
 #      render json: '{"status":"failure"}'
     end
   end
