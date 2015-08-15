@@ -37,10 +37,14 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    password = @user.password
+    password_confirmation = @user.password_confirmation
+    user_params[:password] = password
+    user_params[:password_confirmation] = password_confirmation
     if @user.update_attributes(user_params)
       render json: '{"status":"success"}'
     else
-      render json: '{"username":"'+user_params[:username]+'","email":"'+user_params[:email]+'"}'
+      render json: '{"username":"' + user_params[:username] + '","email":"' + user_params[:email] + '"}'
 #      render json: '{"status":"failure"}'
     end
   end
