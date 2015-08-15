@@ -41,10 +41,10 @@ class Api::UsersController < ApplicationController
     password_confirmation = @user.password_confirmation
 #    user_params[:password] = password
 #    user_params[:password_confirmation] = password_confirmation
-    if @user.update_attributes(user_params)
+    if @user.update_attributes!(user_params)
       render json: '{"status":"success"}'
     else
-      render json: '{"username":"' + user_params[:username] + '","email":"' + user_params[:email] + '","size":"'+ user_params.length +'"}'
+      render json: '{"username":"' + user_params[:username] + '","email":"' + user_params[:email] + '"}'
 #      render json: '{"status":"failure"}'
     end
   end
