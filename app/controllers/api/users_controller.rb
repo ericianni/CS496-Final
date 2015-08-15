@@ -41,6 +41,7 @@ class Api::UsersController < ApplicationController
       render json: '{"status":"success"}'
     else
       render json: '{"status":"failure"}'
+    end
   end
   
   def show
